@@ -14,22 +14,21 @@
 </template>
 
 <script>
-const scrollCls = 'scroll',
-  pullDownCls = 'pullDown',
+const pullDownCls = 'pullDown',
   pullDownLabelCls = 'pullDownLabel',
   pullUpCls = 'pullUp',
   pullUpLabelCls = 'pullUpLabel';
 const lableUp = {
-  initial: '上拉加载更多',
-  suspend: '松开加载更多',
-  loading: '加载中',
-  complete: '加载完成',
+  initial: 'Tire hacia arriba para actualizar',
+  suspend: 'Suelte para actualizar',
+  loading: 'Cargando',
+  complete: 'Actualizado',
 };
 const lableDown = {
-  initial: '下拉刷新',
-  suspend: '松开刷新',
-  loading: '刷新中',
-  complete: '刷新完成',
+  initial: 'Tire hacia abajo para actualizar',
+  suspend: 'Suelte para actualizar',
+  loading: 'Cargando',
+  complete: 'Actualizado',
 };
 export default {
   name: 'PullToRefresh',
@@ -82,7 +81,7 @@ export default {
       let offsetY, touch;
       touch = ev.touches[0];
       offsetY = (touch.screenY - self.startY) / 2;
-      console.log('pulldown', self.down, offsetY, len);
+      //console.log('pulldown', self.down, offsetY, len);
       if (self.down && self.startPageY == 0 && offsetY > 0) {
         ev.preventDefault();
         if (offsetY > len) {
@@ -103,9 +102,8 @@ export default {
         self.pullUpState = lableUp.suspend;
       }
     },
-    touchEnd(ev) {
+    touchEnd() {
       let self = this;
-
       if (self.down && self.pullFlag == 1) {
         self.pullDownCls = 'pullDown loading';
         self.pullDownState = lableDown.loading;
@@ -148,5 +146,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 @import './PullToRefresh.css';
 </style>

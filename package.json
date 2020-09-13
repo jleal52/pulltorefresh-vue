@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/liuhuiashazj/pulltorefresh-vue/issues"
   },
-  "homepage": "https://github.com/liuhuiashazj/pulltorefresh-vue#readme"
+  "homepage": "https://github.com/liuhuiashazj/pulltorefresh-vue#readme",
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-plugin-vue": "^6.2.2"
+  }
 }
